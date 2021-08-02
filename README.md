@@ -1,5 +1,7 @@
 # rust-clsx
 
+portable js library [clsx](https://github.com/lukeed/clsx/blob/master/src/index.js)
+
 ## How to use in yew framework
 
 ```
