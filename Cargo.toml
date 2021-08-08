@@ -1,7 +1,13 @@
 [package]
-name = "rust-clsx"
-version = "0.1.0"
+name = "clsx"
+version = "0.0.1"
 edition = "2018"
+description= "This is a library for toggling css classes according to the logic"
+documentation = "https://docs.rs/crate/clsx/0.0.1"
+authors = ["Dzmitry Ramaniuk <kanumowa@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/DmitryRomaniuk/rust-clsx"
+license= "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
