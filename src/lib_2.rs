@@ -1,28 +1,28 @@
 use std::collections::HashMap;
 
 pub enum Args {
-    hash(HashMap<String, bool>),
-    arr(Box<[(String, bool)]>)
+    Hash(HashMap<String, bool>),
+    Arr(Vec<(String, bool)>),
 }
 
 pub fn clsx(arr: Args) -> String {
     let mut str = "".to_owned();
     match arr {
-        Args::arr(arr) => {
+        Args::Arr(arr) => {
             for (key, value) in arr.iter() {
                 if *value {
-                    str.push_str(" ");
+                    str.push_str(&' '.to_string());
                     str.push_str(key);
                 }
             }
         }
-        Args::hash(arr) => {
+        Args::Hash(arr) => {
             for (key, value) in arr {
                 if value {
-                    str.push_str(" ");
+                    str.push_str(&' '.to_string());
                     str.push_str(&*key);
                 }
-    }
+            }
         }
     }
     str.trim().to_string()
@@ -30,11 +30,18 @@ pub fn clsx(arr: Args) -> String {
 
 #[cfg(test)]
 mod tests {
-    use std::collections::HashMap;
     use super::{clsx, Args};
+    use std::collections::HashMap;
     #[test]
     fn clsx_array() {
-        assert_eq!(clsx(Args::arr(Box::new([("class1".to_string(), true), ("class2".to_string(), false), ("class3".to_string(), true)]))), "class1 class3");
+        assert_eq!(
+            clsx(Args::Arr(vec![
+                ("class1".to_string(), true),
+                ("class2".to_string(), false),
+                ("class3".to_string(), true)
+            ])),
+            "class1 class3"
+        );
     }
     #[test]
     fn clsx_hash() {
@@ -43,6 +50,6 @@ mod tests {
         class_names.insert("key1".to_string(), true);
         class_names.insert("key2".to_string(), false);
         class_names.insert("key3".to_string(), true);
-        assert_eq!(clsx(Args::hash(class_names)), "key key1 key3");
+        assert_eq!(clsx(Args::Hash(class_names)), "key key1 key3");
     }
 }
