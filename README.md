@@ -14,6 +14,6 @@ classes_mic.insert("fa-microphone-slash background__red", !self.state.enable_mic
 
 <i class=clsx_h(classes_mic) />
 
-<i class=clsx(Box::new([("fa", true), ("fa-video-camera", self.state.enable_camera), ("fa-video-slash background__red", !self.state.enable_camera)])) />
+<i class=clsx(vec![("fa", true), ("fa-video-camera", self.state.enable_camera), ("fa-video-slash background__red", !self.state.enable_camera)]) />
 
 ```
