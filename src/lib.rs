@@ -1,9 +1,9 @@
 pub fn clsx(arr: Vec<(&str, bool)>) -> String {
     let mut str = "".to_owned();
-    for (key, value) in arr.iter() {
-        if *value {
+    for (class, condition) in arr.iter() {
+        if *condition {
             str.push_str(&' '.to_string());
-            str.push_str(key);
+            str.push_str(class);
         }
     }
     str.trim().to_string()
