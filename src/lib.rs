@@ -16,4 +16,9 @@ mod tests {
     fn clsx_array() {
         assert_eq!(clsx(vec![("class1", true), ("class2", false), ("class3", true)]), "class1 class3");
     }
+
+    #[test]
+    fn clsx_concatinated_classes() {
+        assert_eq!(clsx(vec![("class1 class4 class5", true), ("class2", false), ("class3", true)]), "class1 class4 class5 class3"); 
+    }
 }
