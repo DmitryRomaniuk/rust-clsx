@@ -1,9 +1,29 @@
 # rust-clsx
 
-portable js library [clsx](https://github.com/lukeed/clsx/blob/master/src/index.js)
+Ported from the [clsx](https://github.com/lukeed/clsx) JavaScript library.
 
-## How to use in yew framework
+## Install
 
-```rust
-<i class=clsx(vec![("fa", true), ("fa-video-camera", self.state.enable_camera), ("fa-video-slash background__red", !self.state.enable_camera)]) />
+```toml
+// Cargo.toml
+[dependencies]
+# this is the development version of Yew
+clsx = 0.1.0
 ```
+
+## Usage
+
+### Example using [Yew](https://yew.rs/)
+```rust
+<div class=clsx(vec![("class", condition), ("multiple classes", different_condition)]) />
+```
+
+## API
+### clsx(input)
+
+Returns: `String`
+
+#### input
+
+Type: `vec![class, condition]`
+

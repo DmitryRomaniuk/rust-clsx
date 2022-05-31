@@ -1,9 +1,9 @@
 pub fn clsx(arr: Vec<(&str, bool)>) -> String {
     let mut str = "".to_owned();
-    for (key, value) in arr.iter() {
-        if *value {
+    for (class, condition) in arr.iter() {
+        if *condition {
             str.push_str(&' '.to_string());
-            str.push_str(key);
+            str.push_str(class);
         }
     }
     str.trim().to_string()
@@ -15,5 +15,10 @@ mod tests {
     #[test]
     fn clsx_array() {
         assert_eq!(clsx(vec![("class1", true), ("class2", false), ("class3", true)]), "class1 class3");
+    }
+
+    #[test]
+    fn clsx_concatinated_classes() {
+        assert_eq!(clsx(vec![("class1 class4 class5", true), ("class2", false), ("class3", true)]), "class1 class4 class5 class3"); 
     }
 }
